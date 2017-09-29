@@ -6,11 +6,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { SkripsiPage } from '../pages/skripsi/skripsi';
+import { TampilanPage } from "../pages/tampilan/tampilan";
 
 @NgModule({
   declarations: [
     MyApp,
-    SkripsiPage
+    SkripsiPage,
+    TampilanPage
   ],
   imports: [
     BrowserModule,
@@ -19,7 +21,8 @@ import { SkripsiPage } from '../pages/skripsi/skripsi';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    SkripsiPage
+    SkripsiPage,
+    TampilanPage
   ],
   providers: [
     StatusBar,

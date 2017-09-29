@@ -1,12 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, OnInit } from '@angular/core';
+import { IonicPage, NavController, NavParams , ViewController} from 'ionic-angular';
 
-/**
- * Generated class for the TampilanPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -14,12 +8,29 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'tampilan.html',
 })
 export class TampilanPage {
+  userInfo: any
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  ngOnInit(){
+    console.log(this.navParams.data)
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TampilanPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+    var passedData = this.navParams.data
+    var temp = new Array()
+
+    temp.push(passedData.name)
+    temp.push(passedData.nim)
+    temp.push(passedData.judul)
+    temp.push(passedData.angkatan)
+    temp.push(passedData.pembimbingList[0])
+    temp.push(passedData.pembimbingList[1])
+    temp.push(passedData.lintasProdi)
+
+    this.userInfo = temp
+  }
+
+  dismiss(){
+    this.viewCtrl.dismiss()
   }
 
 }

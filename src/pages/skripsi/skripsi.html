@@ -50,6 +50,6 @@
               <ion-checkbox formControlName="lintasProdi"></ion-checkbox>
             </ion-item>
       </ion-list>
-    <button ion-button type="submit" block color="secondary">Register me</button>
+    <button ion-button type="submit" block color="secondary" [disabled]="!userForm.valid">Submit</button>
   </form>
 </ion-content>
