@@ -1,0 +1,53 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Pendaftaran Skripsi</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form>
+    <ion-list>
+      <ion-list-header color="primary">DATA DIRI</ion-list-header>
+      <ion-item>
+        <ion-label fixed>Nama</ion-label>
+        <ion-input type="text" placeholder="Nama"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Nim</ion-label>
+        <ion-input type="text" placeholder="NIM"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Judul Skripsi</ion-label>
+        <ion-input type="text" placeholder="Judul"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Class of</ion-label>
+        <ion-select>
+          <ion-option value="2017">2017</ion-option>
+          <ion-option value="2016">2016</ion-option>
+          <ion-option value="2015">2015</ion-option>
+          <ion-option value="2014" selected>2014</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <ion-list-header color="primary">PEMBIMBING</ion-list-header>
+        <ion-item>
+          <ion-label fixed>Nama #1</ion-label>
+          <ion-input type="text" placeholder="pembimbing #1"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Nama #2</ion-label>
+            <ion-input type="text" placeholder="pembimbing #2"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label fixed>Lintas Prodi</ion-label>
+            <ion-checkbox></ion-checkbox>
+          </ion-item>
+      </ion-list>
+    <button ion-button type="submit" block color="secondary">Register me</button>
+  </form>
+</ion-content>
