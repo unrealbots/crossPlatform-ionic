@@ -1,29 +1,31 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import {Validators, FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
 
 @IonicPage()
 @Component({
   selector: 'page-skripsi',
   templateUrl: 'skripsi.html',
 })
-export class SkripsiPage {
-
-  userform: FormGroup;
-
-  ngOnInit(){
+export class SkripsiPage implements OnInit{
+  userForm: FormGroup;
+  
+  ngOnInit() {
     this.initializeForm()
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  private initializeForm(){
-    this.userform = FormGroup({
-      username: new FormControl(null, Validators.required),
-      password: new FormControl(null, Validators.required),
-      classOf:  new FormControl("2014", Validators.required),
+  private initializeForm() {
+    this.userForm = new FormGroup({
+      name: new FormControl(null, Validators.required),
+      nim: new FormControl(null, Validators.required),
+      judul: new FormControl(null, Validators.required),
+      angkatan: new FormControl("2014", Validators.required),
+      pembimbingList: new FormArray([new FormControl(), new FormControl()]),
+      lintasProdi : new FormControl(null, Validators.required)
     })
   }
 
+  onSubmit() {
+      console.log(this.userForm.value)
+    }
 }
