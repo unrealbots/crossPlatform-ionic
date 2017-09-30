@@ -24,7 +24,6 @@ export class SkripsiPage implements OnInit{
       nim:            new FormControl(null, Validators.required),
       judul:          new FormControl(null, Validators.required),
       angkatan:       new FormControl("2014", Validators.required),
-      pembimbingList: new FormArray([new FormControl(null, Validators.required), new FormControl()]),
       lintasProdi :   new FormControl(null)
     })
   }
