@@ -10,6 +10,9 @@ import { TampilanPage } from "../tampilan/tampilan";
 })
 export class SkripsiPage implements OnInit{
   userForm: FormGroup;
+  listPembimbing = new FormArray([
+    new FormControl(null, Validators.required)
+  ])
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
   }
@@ -24,13 +27,20 @@ export class SkripsiPage implements OnInit{
       nim:            new FormControl(null, Validators.required),
       judul:          new FormControl(null, Validators.required),
       angkatan:       new FormControl("2014", Validators.required),
+      pembimbingList: this.listPembimbing,
       lintasProdi :   new FormControl(null)
     })
+  }
+  
+  addListPembimbing(){
+    this.listPembimbing.push(new FormControl())
   }
 
   onSubmit() {
       let modal = this.modalCtrl.create(TampilanPage, this.userForm.value);
+      modal.onWillDismiss(data => {
+        this.userForm.reset()
+      });
       modal.present()
-      this.userForm.reset()
     }
 }

@@ -5,7 +5,6 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <ion-list>
@@ -33,13 +32,16 @@
       </ion-item>
     </ion-list>
 
-    <ion-list >
+    <ion-list formArrayName="pembimbingList">
         <ion-list-header color="primary">PEMBIMBING</ion-list-header>
-        <ion-item>
-          <ion-label fixed>Nama #1</ion-label>
-          <ion-input type="text" placeholder="pembimbing #1" ></ion-input>
-        </ion-item>
-      </ion-list>
+        <ion-label color="primary" fixed (click)="addListPembimbing()">Tambah</ion-label>
+        <div *ngFor="let myItem of listPembimbing.controls; let i = index">
+          <ion-item >
+            <ion-label fixed>Nama</ion-label>
+            <ion-input type="text" placeholder="Pembimbing #{{ i+1 }}" formControlName="{{i}}"></ion-input>
+          </ion-item>
+        </div>
+    </ion-list>
       <ion-list>
           <ion-item>
               <ion-label fixed>Lintas Prodi</ion-label>

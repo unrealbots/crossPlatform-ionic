@@ -8,24 +8,25 @@ import { IonicPage, NavController, NavParams , ViewController} from 'ionic-angul
   templateUrl: 'tampilan.html',
 })
 export class TampilanPage {
-  userInfo: any
+  userInfo = new Array()
+  listPembimbing = new Array()
 
   ngOnInit(){
-    console.log(this.navParams.data)
   }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
     var passedData = this.navParams.data
     var temp = new Array()
+    var tempList = new Array()
 
-    temp.push(passedData.name)
-    temp.push(passedData.nim)
-    temp.push(passedData.judul)
-    temp.push(passedData.angkatan)
-    temp.push(passedData.pembimbingList[0])
-    temp.push(passedData.lintasProdi ? "Ya" : "Tidak")
-
-    this.userInfo = temp
+    this.userInfo.push(passedData.name)
+    this.userInfo.push(passedData.nim)
+    this.userInfo.push(passedData.judul)
+    this.userInfo.push(passedData.angkatan)
+    this.userInfo.push(passedData.lintasProdi ? "Ya" : "Tidak")
+    for(var i=0; i<passedData.pembimbingList.length; i++){
+      this.listPembimbing.push(passedData.pembimbingList[i])
+    }
   }
 
   dismiss(){
