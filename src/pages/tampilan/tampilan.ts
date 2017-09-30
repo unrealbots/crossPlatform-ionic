@@ -24,7 +24,7 @@ export class TampilanPage {
     temp.push(passedData.angkatan)
     temp.push(passedData.pembimbingList[0])
     temp.push(passedData.pembimbingList[1])
-    temp.push(passedData.lintasProdi)
+    temp.push(passedData.lintasProdi ? "Ya" : "Tidak")
 
     this.userInfo = temp
   }
