@@ -32,5 +32,4 @@ export class TampilanPage {
   dismiss(){
     this.viewCtrl.dismiss()
   }
-
 }
